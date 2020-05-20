@@ -10,10 +10,27 @@
   {{ .Content }}
   <ul>
     {{ range .Paginator.Pages }}
-    <li>
-      <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-      <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
-    </li>
+    {{ $title := .Title|lower}}
+    {{ $count := 0}}
+    {{ range $k, $v := .Site.Taxonomies.categories}}
+      {{$key := $k|lower}}
+      {{if eq $key $title}}
+        {{$count = len $v}}
+      {{end}}
+    {{end}}
+    {{if gt $count 0}}
+      <li>
+        <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
+          <span class="category-item-count">
+            <sup>({{$count}})</sup>
+          </span>
+      </li>
+    {{else}}
+      <li>
+        <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+        <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{end}}
     {{ end }}
   </ul>
   {{ partial "pagination.html" . }}

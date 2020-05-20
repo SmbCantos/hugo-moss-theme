@@ -8,8 +8,8 @@
     {{ with .Site.Params.gravatar }}
       <div class="avatar"><img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" alt="gravatar"></div>
     {{ end }}
-    <h1>{{ .Site.Params.author }}</h1>
-    <h2>{{ .Site.Params.info }}</h2>
+    <h1 class="name">{{ .Site.Params.author }}</h1>
+    <h2 class="info">{{ .Site.Params.info }}</h2>
     {{ with .Site.Params.social }}
     <ul>
       {{ range sort . "weight" }}
@@ -28,4 +28,4 @@
     </ul>
     {{ end }}
   </div>
-</section>
+</section>-

@@ -28,7 +28,7 @@ a {
   text-decoration: none;
   &:focus,
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -43,7 +43,7 @@ h4,
 h5,
 h6 {
   font-family: $heading-font-family;
-  font-weight: 700;
+  font-weight: 20;
   color: $alt-fg-color;
   margin: 6.4rem 0 3.2rem 0;
 }
@@ -209,4 +209,41 @@ figure {
 
 .fas {
   font-weight: 900;
+}
+
+.name {
+  font-size: 9.0rem;
+  line-height: 3.6rem;
+  @media only screen and (max-width : 768px) {
+    font-size: 4.5rem;
+    line-height: 3.4rem;
+  }
+}
+
+.info{
+  padding-top: 2.0rem;
+  @media only screen and (max-width : 768px) {
+    padding-top: 0rem;
+  }
+}
+
+.foot{
+  font-size: 2.5rem;
+  color: #C44900;
+  @media only screen and (max-width : 768px) {
+    font-size: 2.0rem;
+  }
+}
+
+.category-item-count {
+  font-family: 'Lato', sans-serif;
+  margin-right: 15px;
+  color: #ccc;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category-item a:hover,
+.category-item a:active {
+   color: #ccc;
 }
